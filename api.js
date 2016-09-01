@@ -5,6 +5,10 @@ class API {
     this.connection = connection;
   }
   
+  reply(reply_msg, msg) {
+    this.connection.reply(reply_msg.initial.id, msg);
+  }
+  
   send(msg) {
     this.connection.send('Анонимный_чат', msg);
   }

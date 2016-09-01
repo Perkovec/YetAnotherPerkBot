@@ -46,6 +46,7 @@ class Plugins {
     if (msg && msg.text) {
       for (let i = 0; i < this.plugins.message.length; ++i) {
         this.plugins.message[i].main.call(api, {
+          initial: msg,
           raw: `👨Перк:  ${msg.text}`,
           username: '👨Перк',
           text: msg.text
@@ -64,6 +65,7 @@ class Plugins {
     if (msg && msg.text) {
       if (leaveRegex.test(msg.text)) {
         emit(this.plugins.leave, {
+          initial: msg,
           raw: msg.text,
           user_id: msg.text.match(leaveIDRegex)[0].slice(1),
           username: msg.text.match(leaveNicknameRegex)[0].slice(1, -1),
@@ -71,6 +73,7 @@ class Plugins {
         });
       } else if (entryRegex.test(msg.text)) {
         emit(this.plugins.entry, {
+          initial: msg,
           raw: msg.text,
           user_id: msg.text.match(entryIDRegex)[0].slice(1),
           username: msg.text.match(entryNicknameRegex)[0].slice(1, -1),
@@ -78,18 +81,21 @@ class Plugins {
         });
       } else if(achieveRegex.test(msg.text)) {
         emit(this.plugins.new_achieve, {
+          initial: msg,
           raw: msg.text,
           username: msg.text.match(achieveNicknameRegex)[0].slice(1, -1),
           achieve: msg.text.split('\n')[1]
         });
       } else if (meRegex.test(msg.text)) {
         emit(this.plugins.me, {
+          initial: msg,
           raw: msg.text,
           username: msg.text.match(meNicknameRegex)[0].slice(1, -1),
           text: msg.text.split('`')[2].slice(1)
         });
       } else if (messageRegex.test(msg.text)) {
         emit(this.plugins.message, {
+          initial: msg,
           raw: msg.text,
           username: msg.text.match(messageUsernameRegex)[0].slice(0, -1),
           text: msg.text.match(messageTextRegex)[0].slice(3)
