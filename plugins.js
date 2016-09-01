@@ -9,6 +9,12 @@ const entryRegex = /^(\[bot\].*входит в чат)/ig;
 const entryIDRegex = /#\w*/i;
 const entryNicknameRegex = /`.*`/i;
 
+const achieveRegex = /^(\[bot\].*\sполучил\sновую\sачивку)/i;
+const achieveNicknameRegex = /`.*`/i;
+
+const meRegex = /^(\*\s`.*`)/i;
+const meNicknameRegex = /`.*`/i;
+
 const messageRegex = /.*^[^:]*:/i;
 const messageTextRegex = /:\s\s.*/i;
 const messageUsernameRegex = /^[^:]*:/i;
@@ -18,7 +24,9 @@ class Plugins {
     this.plugins = {
       message: [],
       leave: [],
-      entry: []
+      entry: [],
+      new_achieve: [],
+      me: []
     };
     this._registerPlugins();
   }
@@ -67,6 +75,18 @@ class Plugins {
           user_id: msg.text.match(entryIDRegex)[0].slice(1),
           username: msg.text.match(entryNicknameRegex)[0].slice(1, -1),
           isNewbie: (msg.text.indexOf('Он новенький') > -1)
+        });
+      } else if(achieveRegex.test(msg.text)) {
+        emit(this.plugins.new_achieve, {
+          raw: msg.text,
+          username: msg.text.match(achieveNicknameRegex)[0].slice(1, -1),
+          achieve: msg.text.split('\n')[1]
+        });
+      } else if (meRegex.test(msg.text)) {
+        emit(this.plugins.me, {
+          raw: msg.text,
+          username: msg.text.match(meNicknameRegex)[0].slice(1, -1),
+          text: msg.text.split('`')[2].slice(1)
         });
       } else if (messageRegex.test(msg.text)) {
         emit(this.plugins.message, {
