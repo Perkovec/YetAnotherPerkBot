@@ -20,7 +20,13 @@ npm install
 
 В него клонируем [tg-cli](https://github.com/vysheng/tg) и компилируем, следуя [инструкции](https://github.com/vysheng/tg#installation)
 
-А теперь запускаем:
+После того, как вы удачно скомпилировали [tg-cli](https://github.com/vysheng/tg), вы должны его запустить:
+```bash
+./tg/bin/telegram-cli -k ./tg/tg-server.pub
+```
+После запуска вам необходимо авторизироваться. Авторизировались? Можете останавливать (`Ctrl+C`)
+
+А теперь запускаем бота:
 ```bash
 node index
 ```
@@ -62,3 +68,15 @@ module.exports = {
   - `user_id`:string – ID пользователя, который вошел
   - `username`:string - ник пользователя, который вошел
   - `isNewbie`:boolean - новый ли пользователь
+
+### Пример плагина
+```javascript
+module.exports = {
+  eventTrigger: 'message',
+  main(msg) {
+    if (msg.text === 'ping') {
+      this.send('pong');
+    }
+  }
+}
+```
