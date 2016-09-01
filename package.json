@@ -1,0 +1,14 @@
+{
+  "name": "yetanotherperkbot",
+  "version": "1.0.0",
+  "description": "Bot for @YetAnotherBot in Telegram",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Perkovec",
+  "license": "GNU GPLv3",
+  "dependencies": {
+    "tg-cli-node": "0.0.2"
+  }
+}
