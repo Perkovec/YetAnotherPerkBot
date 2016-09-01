@@ -25,6 +25,7 @@ module.exports = {
       download('http://thecatapi.com/api/images/get?format=src&type=jpg', pathToPic)
         .then(() => {
           this.sendImage(pathToPic);
+          lastCat = new Date();
           setTimeout(() => {
             fs.unlink(pathToPic);
           }, 1000);
