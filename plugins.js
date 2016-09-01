@@ -1,3 +1,4 @@
+'use strict';
 const fs = require('fs');
 
 const leaveRegex = /^(\[bot\].*выходит из чата)/ig;

@@ -1,3 +1,5 @@
+'use strict';
+
 class API {
   constructor(connection) {
     this.connection = connection;

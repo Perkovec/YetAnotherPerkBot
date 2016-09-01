@@ -9,6 +9,7 @@
   "author": "Perkovec",
   "license": "GNU GPLv3",
   "dependencies": {
+    "request": "^2.74.0",
     "tg-cli-node": "0.0.2"
   }
 }
