@@ -1,3 +1,4 @@
+'use strict';
 const fs = require('fs');
 const path = require('path');
 const request = require('request');
@@ -13,10 +14,12 @@ function download(uri, filename){
   });
 };
 
+let lastCat = new Date();
+
 module.exports = {
   eventTrigger: 'message',
   main(msg) {
-    if (msg.text === '!cat') {
+    if (msg.text === '!cat' && (new Date() - lastCat) > 1000 * 15) {
       const picName = 'cat' + new Date().getTime() + '.jpeg';
       const pathToPic = path.join(__dirname, '../plugins_assets', picName);
       download('http://thecatapi.com/api/images/get?format=src&type=jpg', pathToPic)

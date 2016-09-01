@@ -28,6 +28,7 @@ class Plugins {
     for (let i = 0; i < fileList.length; ++i) {
       const plugin = require(`./plugins/${fileList[i]}`);
       if (plugin && plugin.eventTrigger) {
+        console.log(`${fileList[i]} loaded`);
         this.plugins[plugin.eventTrigger].push(plugin);
       }
     }
