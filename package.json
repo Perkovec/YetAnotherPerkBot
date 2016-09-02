@@ -1,6 +1,6 @@
 {
   "name": "yetanotherperkbot",
-  "version": "1.0.0",
+  "version": "0.5.1",
   "description": "Bot for @YetAnotherBot in Telegram",
   "main": "index.js",
   "scripts": {

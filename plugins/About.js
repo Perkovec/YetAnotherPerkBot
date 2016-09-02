@@ -1,5 +1,5 @@
 const about = 
-(`YetAnotherPerkBot v0.5.0
+(`YetAnotherPerkBot v0.5.1
 
 Ссылка на исходники бота (там же и инструкция по созданию плагинов):
 <a href=\\"https://github.com/Perkovec/YetAnotherPerkBot\\">GitHub</a>
