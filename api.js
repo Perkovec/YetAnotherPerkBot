@@ -13,6 +13,10 @@ class API {
     this.connection.send('Анонимный_чат', `<b>«bot»</b>\\n${msg}`);
   }
   
+  forward(msg_id) {
+    this.connection.forward('Анонимный_чат', msg_id);
+  }
+  
   sendImage(path) {
     this.connection.sendImage('Анонимный_чат', path);
   }
