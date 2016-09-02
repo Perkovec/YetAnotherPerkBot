@@ -4,7 +4,11 @@ const path = require('path');
 
 const filePath = path.join(__dirname, '../plugins_assets/PerkRecommendPlugin.txt');
 
-fs.closeSync(fs.openSync(filePath, 'w'));
+try {
+  fs.accessSync(filePath, fs.F_OK);
+} catch (e) {
+  fs.closeSync(fs.openSync(filePath, 'w'));
+}
 
 let lastRecommend = new Date();
 
