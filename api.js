@@ -6,11 +6,11 @@ class API {
   }
   
   reply(reply_msg, msg) {
-    this.connection.reply(reply_msg.initial.id, msg);
+    this.connection.reply(reply_msg.initial.id, `<b><bot></b>\\n${msg}`);
   }
   
   send(msg) {
-    this.connection.send('Анонимный_чат', msg);
+    this.connection.send('Анонимный_чат', `<b><bot></b>\\n${msg}`);
   }
   
   sendImage(path) {
