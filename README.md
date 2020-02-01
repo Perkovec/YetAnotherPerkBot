@@ -1,5 +1,7 @@
 # YetAnotherPerkBot
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Perkovec/YetAnotherPerkBot.svg)](https://greenkeeper.io/)
+
 Чат бот для чат бота @YetAnotherBot в Telegram.
 
 ## Установка
